@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link href="css/main.css" rel="stylesheet" />
+    <!-- .jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <script>
+        $(function () {
+            var swiper = new Swiper(".main_visual", {
+                spaceBetween: 0,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });//swiper end
+
+            $('.swiper-play').click(function () {
+                swiper.autoplay.start();
+            })
+
+            $('.swiper-stop').click(function () {
+                swiper.autoplay.stop();
+            })
+            
+            $('.swiper-play').click(function () {
+                if ($('.swiper-stop').css('display') == 'none') {
+                    $('.swiper-stop').css('display', 'block');
+                    $('.swiper-play').css('display', 'none');
+                }
+            })//$('swiper-play').click end
+
+            $('.swiper-stop').click(function () {
+                if ($('.swiper-play').css('display') == 'none') {
+                    $('.swiper-play').css('display', 'block');
+                    $('.swiper-stop').css('display', 'none');
+                }
+            })//$('swiper-stop').click end
+
+        })//jquery
+    </script>
+    <script>
+        window.onload = function () {
+            let hd = document.getElementsByTagName('header')[0];
+            let cont01 = document.getElementsByClassName('cont01')[0];
+            let cont01Title = cont01.getElementsByClassName('title')[0];
+            let mainVisual = document.getElementsByClassName('main_visual')[0];
+            let cont02 = document.getElementsByClassName('cont02')[0];
+            let cont02Title = cont02.getElementsByTagName('p')[0];
+
+            window.onscroll = function () {
+                let scrollBar = window.scrollY;
+                console.log(scrollBar);
+                //console.log(hd.offsetTop); //0
+
+                if (hd.offsetTop < scrollBar) {
+                    hd.classList.add('on');
+                } else {
+                    hd.classList.remove('on');
+                }
+
+                //console.log(cont01Title.offsetTop);
+                if (400 <= scrollBar) {
+                    cont01Title.classList.add('on');
+                } else {
+                    cont01Title.classList.remove('on');
+                }
+
+                console.log(cont02Title.offsetTop);
+                if (1700 <= scrollBar) {
+                    cont02Title.classList.add('on');
+                } else {
+                    cont02Title.classList.remove('on');
+                }
+
+            }//onscroll end
+
+            let cont01TapMenu = cont01.getElementsByTagName('li');
+            let cont01List = cont01.getElementsByClassName('item');
+
+            for (let i = 0; i < cont01TapMenu.length; i++) {
+                cont01TapMenu[i].onclick = function () {
+                    cont01TapMenu[0].classList.remove('on');
+                    cont01TapMenu[1].classList.remove('on');
+                    cont01TapMenu[2].classList.remove('on');
+                    cont01TapMenu[i].classList.add('on');
+
+                    cont01List[0].classList.remove('on');
+                    cont01List[1].classList.remove('on');
+                    cont01List[2].classList.remove('on');
+                    cont01List[i].classList.add('on');
+                }//cont01TapMenu[i].onclick end
+            }//for end
+
+        }//window.onload end
+    </script>
+
+    <title>유니테크</title>
+</head>
+
+<body>
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="#">
+                    <img src="img/logo.svg" alt="유니테크 로고" />
+                </a>
+            </h1>
+            <nav>
+                <ul>
+                    <li>KR</li>
+                    <li>EN</li>
+                    <img src="img/free-icon-menu-2976215.png" alt="전체메뉴" />
+                </ul>
+            </nav>
+        </div><!-- .inner end -->
+    </header>
+
+    <main>
+        <!-- Swiper -->
+        <div class="swiper main_visual">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="img/kevin-young--icmOdYWXuQ-unsplash.jpg" alt="더 나은 미래를 위한 모빌리티 솔루션을 제공합니다." />
+                    <p>더 나은 미래를 위한<br />
+                        모빌리티 솔루션을 제공합니다.</p>
+                </div><!-- .swiper-slide end / 1-->
+                <div class="swiper-slide">
+                    <img src="img/denys-nevozhai-7nrsVjvALnA-unsplash.jpg" alt="더 나은 미래를 위한 모빌리티 솔루션을 제공합니다." />
+                    <p>더 나은 미래를 위한<br />
+                        모빌리티 솔루션을 제공합니다.</p>
+                </div><!-- .swiper-slide end / 1-->
+                <div class="swiper-slide">
+                    <img src="img/henning-witzel-ukvgqriuOgo-unsplash.jpg" alt="더 나은 미래를 위한 모빌리티 솔루션을 제공합니다." />
+                    <p>더 나은 미래를 위한<br />
+                        모빌리티 솔루션을 제공합니다.</p>
+                </div><!-- .swiper-slide end / 1-->
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+
+            <!-- 정지 재생 버튼 -->
+            <div class="play_stop_wrap">
+                <div class="swiper-play">
+                    <img src="img/icon_play.png" alt="재생" />
+                </div>
+                <div class="swiper-stop">
+                    <img src="img/icon_stop.png" alt="정지" />
+                </div>
+            </div><!-- .play_stop_wrap end-->
+        </div><!-- .main_visual end -->
+
+        <section class="cont01">
+            <div class="inner">
+                <div class="title">
+                    <h3>24년 이상의 <br />
+                        <span>특수화학 솔루션 전문기업</span>
+                    </h3>
+                    <p>접착제 솔루션 전문기업 유니테크는 자동차, 조선/해양, EV, 전자 등 다양한 산업분야에서 새로운 비즈니스를 창출해 나갑니다.</p>
+                </div><!-- .title end -->
+                <ul class="tap_menu">
+                    <li class="on">MOBILITY</li>
+                    <li>ENERGY</li>
+                    <li>INNOVATION</li>
+                </ul><!-- .tap_menu end -->
+                <div class="item on">
+                    <figure>
+                        <img src="img/lance-asper-N9Pf2J656aQ-unsplash.jpg" alt="MOBILITY" />
+                    </figure>
+                    <div class="text">
+                        <p class="subtitle">첨단 모빌리티 소재의 중심</p>
+                        <p class="keyword">MOBILITY</p>
+                        <p>보다 안전하고, 보다 가벼워질 수 있는 모빌리티 소재를 제공합니다.</p>
+                        <a href="#">AUTOMOTIVE</a>
+                    </div><!-- .text end -->
+                </div><!-- .item /1 end -->
+
+                <div class="item">
+                    <figure>
+                        <img src="img/ross-parmly-rf6ywHVkrlY-unsplash.jpg" alt="ENERGY" />
+                    </figure>
+                    <div class="text">
+                        <p class="subtitle">지속가능한 에너지 솔루션</p>
+                        <p class="keyword">ENERGY</p>
+                        <p>독창적인 기술력과 우수한 품질로 지속가능한 에너지 솔루션을 제안합니다.</p>
+                        <a href="#">LNG CARRIER</a>
+                        <a href="#">BATTERY</a>
+                    </div><!-- .text end -->
+                </div><!-- .item /2 end -->
+
+                <div class="item">
+                    <figure>
+                        <img src="img/spacex-OHOU-5UVIYQ-unsplash.jpg" alt="INNOVATION" />
+                    </figure>
+                    <div class="text">
+                        <p class="subtitle">미래 혁신 소재 구현</p>
+                        <p class="keyword">INNOVATION</p>
+                        <p>극한의 환경에도 적용할 수 있는 접착 소재를 구현합니다.</p>
+                        <a href="#">ELECTRONICS</a>
+                        <a href="#">AEROSPACE</a>
+                    </div><!-- .text end -->
+                </div><!-- .item /3 end -->
+            </div><!-- .inner end -->
+        </section><!-- .cont01 end -->
+
+        <section class="cont02">
+            <div class="inner">
+                <p>우수한 품질과 기술로 최상의 고객만족을 실현해나가겠습니다.</p>
+                <div class="list">
+                    <ul class="item">
+                        <li><span>20</span>년</li>
+                        <li>자동차, 선박제품 연구개발 경력</li>
+                    </ul><!-- .item end -->
+                    <ul class="item">
+                        <li><span>15</span>만톤</li>
+                        <li>전 세계 제품 제조 역량</li>
+                    </ul><!-- .item end -->
+                    <ul class="item">
+                        <li><span>250</span>척</li>
+                        <li>LNG Carrier 누적 건조척 수</li>
+                    </ul><!-- .item end -->
+                    <ul class="item">
+                        <li><span>100</span>개</li>
+                        <li>공급 고객사</li>
+                    </ul><!-- .item end -->
+                </div><!-- .list end -->
+            </div><!-- .inner end -->
+        </section><!-- .cont02 end -->
+
+        <section class="cont03">
+            <div class="inner">
+                <p>진보된 기술력을 바탕으로 고객에게<br />
+                    지속가능한 경쟁력을 제공하는 유니테크로<br />
+                    발전해 나가겠습니다.</p>
+            </div><!-- .inner end -->
+        </section><!-- .cont03 end -->
+
+        <footer>
+            <div class="inner">
+                <p>ⓒ 2023 Unitech Co., Ltd. All rights reserved.</p>
+            </div><!-- .inner end -->
+        </footer>
+    </main>
+
+
+</body>
+
+</html>
