@@ -85,7 +85,7 @@ header .inner nav ul li {
     margin-left: 5px;
 }
 
-header .inner nav ul img {
+header .inner nav img {
     height: 30px;
     margin-left: 30px;
     filter: invert(100%);
